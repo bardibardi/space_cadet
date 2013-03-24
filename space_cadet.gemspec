@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'space_cadet'
-  s.version = '0.8.0'
+  s.version = '0.8.1'
   s.date = '2013-03-24'
   s.summary = "for space cadet augmented ActiveRecord::Base's, ruby ObjectSpace like object_id's (called space_id's) based on UUID's"
   s.description = "space_cadet is a simple hack, for any ActiveRecord supported database, which provides a uuids table of distributable identities of space cadets -- ActiveRecord::Base instances which use the SpaceCadetWrapper. Each space cadet has by reference a space_id unique in the set of all local space cadets; a space cadet's space_id is derived from its uuid - UUID's are by design universally distributable."
@@ -24,7 +24,7 @@ lib/space_cadet_active_record_uuid.rb
 lib/space_cadet_any_db_uuid.rb
 lib/space_cadet_uuid.rb
 lib/space_cadet_space_id.rb
-lib/space_cadet_wrapper.rb
+lib/space_cadet.rb
 spec/space_cadet_spec.rb
 spec/space_cadet_space_id_spec.rb
 spec/support/ar_rspec.rb

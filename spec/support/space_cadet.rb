@@ -4,7 +4,7 @@ def l
   [result, me]
 end
 
-require_relative '../../lib/space_cadet_wrapper'
+require_relative '../../lib/space_cadet'
 
 POSTGRESQL_URL ||= "postgres://postgres:postgres@localhost/postgres"
 

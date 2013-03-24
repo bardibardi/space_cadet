@@ -11,7 +11,7 @@ space\_cadet is a simple hack, for any ActiveRecord supported database, which pr
 
 ## Usage
 
-    require 'space_cadet_wrapper'
+    require 'space_cadet'
 
     class ChessGame < ActiveRecord::Base
     
