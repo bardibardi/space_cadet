@@ -100,7 +100,7 @@ The author uses DbVisualizer 9.0.5 and irb to try out the space cadets.
 
 Note, to find the gem installation directory:
 
-    irb prompt> require 'space_cadet_wrapper'
+    irb prompt> require 'space_cadet'
     irb prompt> $".grep(/space_cadet/)[0]
     irb prompt> exit
 
