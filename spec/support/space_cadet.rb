@@ -6,9 +6,21 @@ end
 
 require_relative '../../lib/space_cadet'
 
-POSTGRESQL_URL ||= "postgres://postgres:postgres@localhost/postgres"
+# POSTGRESQL_URL ||= "postgres://postgres:postgres@localhost/postgres"
 
-CONNECTION_POOL ||= ActiveRecord::Base.establish_connection POSTGRESQL_URL
+# CONNECTION_POOL ||= ActiveRecord::Base.establish_connection POSTGRESQL_URL
+
+# cannot get the following to work
+#   (absolute path does not work either)
+# SQLITE3_URL ||= "sqlite3:Desktop/current/space_cadet/tmp/space_cadet.db"
+# CONNECTION_POOL ||= ActiveRecord::Base.establish_connection SQLITE3_URL
+
+# needs absolute path
+SQLITE3_DB ||= "/home/bardi/Desktop/current/space_cadet/tmp/space_cadet.db"
+
+CONNECTION_POOL ||= ActiveRecord::Base.establish_connection(
+  adapter: 'sqlite3', database: SQLITE3_DB   
+)
 
 END { CONNECTION_POOL.disconnect! }
 
