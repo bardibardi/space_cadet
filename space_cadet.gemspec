@@ -23,10 +23,10 @@ space_cadet.gemspec
 lib/space_cadet_active_record_uuid.rb
 lib/space_cadet_any_db_uuid.rb
 lib/space_cadet_uuid.rb
-lib/space_cadet_uuid_id.rb
+lib/space_cadet_space_id.rb
 lib/space_cadet_wrapper.rb
 spec/space_cadet_spec.rb
-spec/space_cadet_uuid_id_spec.rb
+spec/space_cadet_space_id_spec.rb
 spec/support/ar_rspec.rb
 spec/support/no_should_rspec.rb
 spec/support/space_cadet.rb
