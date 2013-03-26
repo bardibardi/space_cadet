@@ -16,11 +16,15 @@ describe SpaceCadet::Uuid do
     u = SpaceCadet::Uuid.find_by_source_name_and_source_id(
       'chess_games', duplicate_id)
     duplicate_uuid = u.uuid
-    scsi = Object.new.extend SpaceCadetSpaceId
-    duplicate_space_id = scsi.space_id_from_uuid duplicate_uuid, 31
+    scw = SpaceCadetWrapper.new
+    duplicate_space_id = scw.space_id_from_uuid duplicate_uuid, 31
+    # to make sure that the expected exception
+    #   is not due to broken code
+    scw.add_uuid(SpaceCadet::Uuid, duplicate_id + 2,
+      'chess_games', duplicate_space_id + 2, duplicate_uuid)
     exception_thrown = nil
     begin
-      chess_game.add_uuid(SpaceCadet::Uuid.class, duplicate_id + 1,
+      scw.add_uuid(SpaceCadet::Uuid, duplicate_id + 1,
         'chess_games', duplicate_space_id, duplicate_uuid)
     rescue
       exception_thrown = true
@@ -36,9 +40,8 @@ describe SpaceCadet::Uuid do
     chess_game.class.destroy(id)
     exception_thrown = nil
     begin
-      u = SpaceCadet::Uuid.find_by_source_name_and_source_id(
+      u = SpaceCadet::Uuid.find_by_source_name_and_source_id!(
         'chess_games', id)
-      raise 'no uuid' unless u
     rescue
       exception_thrown = true
     end
