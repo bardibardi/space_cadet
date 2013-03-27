@@ -12,14 +12,15 @@ require_relative '../../lib/space_cadet'
 
 # cannot get the following to work
 #   (absolute path does not work either)
-# SQLITE3_URL ||= "sqlite3:Desktop/current/space_cadet/tmp/space_cadet.db"
+# SQLITE3_URL ||= "sqlite3:Desktop/current/space_cadet/tmp/space_cadet.sqlite3"
 # CONNECTION_POOL ||= ActiveRecord::Base.establish_connection SQLITE3_URL
 
 # needs absolute path
-SQLITE3_DB ||= "/home/bardi/Desktop/current/space_cadet/tmp/space_cadet.db"
+# [Dir.pwd, 'tmp', 'space_cadet.sqlite3'].join('/')
+SQLITE3_FILE ||= File.expand_path('space_cadet.sqlite3', 'tmp')
 
 CONNECTION_POOL ||= ActiveRecord::Base.establish_connection(
-  adapter: 'sqlite3', database: SQLITE3_DB   
+  adapter: 'sqlite3', database: SQLITE3_FILE   
 )
 
 END { CONNECTION_POOL.disconnect! }
